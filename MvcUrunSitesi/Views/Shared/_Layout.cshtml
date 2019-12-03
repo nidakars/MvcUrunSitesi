@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Img/favicon-01.png" rel="shortcut icon" type="image/x-icon">
+    <title>@ViewBag.Title - Ürün Sitesi</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Anasayfa", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Hakkımızda", "About", "Home")</li>
+                    <li>@Html.ActionLink("İletişim", "Contact", "Home")</li>
+                    <li class="dropdown">
+                        <a id="dLabel" data-target="#" href="/kategoriler" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            Ürünlerimiz
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dLabel">
+                            <li>@Html.ActionLink("Anasayfa", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Hakkımızda", "About", "Home")</li>
+                            <li>@Html.ActionLink("İletişim", "Contact", "Home")</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid body-content">
+        @RenderBody()
+        <hr />
+        
+    </div>
+    <footer>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-6 col-md-3">
+                    <h5>Şirket ünvanı</h5>
+                    <hr />
+                    <a href="/iletisim">
+                        İletişim bilgileri
+                    </a>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <h5>Hakkımızda</h5>
+                    <hr />
+                    <ul>
+                        <li><a href="/hakkimizda">Biz Kimiz?</a></li>
+                        <li><a href="/haber">Moda Blog</a></li>
+                        <li><a href="/video-galeri">Video Galeri</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <h5>Formlar</h5>
+                    <hr />
+                    <ul>
+                        <li><a href="/kayit">Yeni Üyelik</a></li>
+                        <li><a href="/iletisim">İletişim Formu</a></li>
+                        <li><a href="/odemetalep">Havale Bildirim Formu</a></li>
+                        <li><a href="/sikca-sorulan-sorular-s-s-s">Sıkça Sorulan Sorular (S.S.S)</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <h5>Sayfalar</h5>
+                    <hr />
+                    <ul>
+                        <li><a href="gizlilik">Gizlilik Ve Güvenlik</a></li>
+                        <li><a href="teslimat-ve-iade">Teslimat ve İade</a></li>
+                        <li><a href="mesafeli-satis-sozlesmesi">Mesafeli Satış Sözleşmesi</a></li>
+                        <li><a href="uyelik-ve-kullanici-sozlesmesi">Üyelik ve Kullanıcı Sözleşmesi</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Ürün sitesi</p>
+        </div>
+    </footer>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
