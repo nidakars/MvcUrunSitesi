@@ -1,0 +1,35 @@
+﻿@model IEnumerable<MvcUrunSitesi.Entities.Category>
+
+@{ var selectedCategory = Url.RequestContext.RouteData.Values["id"]; }
+
+@foreach (var item in Model)
+{
+    if (selectedCategory != null)
+    {
+        if (item.Id == int.Parse(selectedCategory.ToString()))
+        {
+            //seçilen kategori ile route id eşleşiyorsa a tagına active class ını uygula
+            <li>
+                <a href="/Urunlerimiz/@item.Id" class="active">
+                    @item.KategoriAdi
+                </a>
+            </li>
+        }
+        else
+        {
+            <li>
+                <a href="/Urunlerimiz/@item.Id">
+                    @item.KategoriAdi
+                </a>
+            </li>
+        }
+    }
+    else
+    {
+        <li>
+            <a href="/Urunlerimiz/@item.Id">
+                @item.KategoriAdi
+            </a>
+        </li>
+    }
+}

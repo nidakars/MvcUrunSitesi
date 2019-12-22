@@ -148,6 +148,13 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\CategoriesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MainController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SliderController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
+    <Compile Include="Areas\Admin\Controllers\YoneticiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DAL\UrunContext.cs" />
     <Compile Include="DAL\UrunInitializer.cs" />
@@ -162,6 +169,7 @@
     <Compile Include="Entities\Category.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\Slider.cs" />
+    <Compile Include="Models\SepetViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -184,6 +192,36 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Main\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Categories\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Categories\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Categories\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Categories\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Categories\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Slider\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Slider\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Slider\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Slider\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Slider\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Yonetici\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Yonetici\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Yonetici\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Yonetici\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Yonetici\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Main\Login.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Img\6-2-compressor.jpg" />
     <Content Include="Img\6-5-compressor.jpg" />
@@ -221,13 +259,21 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Slider.cshtml" />
-    <Content Include="Views\Home\Urunler.cshtml" />
+    <Content Include="Views\Home\Urunlerimiz.cshtml" />
     <Content Include="Views\Home\UrunDetay.cshtml" />
     <Content Include="Views\Home\SayfaDetay.cshtml" />
+    <Content Include="Views\Shared\UstKategoriler.cshtml" />
+    <Content Include="Views\Home\Kayit.cshtml" />
+    <Content Include="Views\Home\UyeGiris.cshtml" />
+    <Content Include="Views\Home\UyePaneli.cshtml" />
+    <Content Include="Views\Home\SepetGoster.cshtml" />
+    <Content Include="Views\Home\Satinal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Img\Product\" />
+    <Folder Include="Img\Slider\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

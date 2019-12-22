@@ -1,0 +1,24 @@
+﻿@model IEnumerable<MvcUrunSitesi.Entities.Sepet>
+
+@{
+    ViewBag.Title = "Satınal";
+    if (Session["kullanici"] == null) { Response.Redirect("/giris"); }
+}
+
+<h2>Satınal</h2>
+
+<table class="table">
+    <tr>
+        <th>Ürün Resmi</th>
+        <th>Ürün Adı</th>
+        <th>Ürün Fiyatı</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td><img src="~/Img/Product/@item.Product.UrunResmi" height="60" /></td>
+            <td>@Html.DisplayFor(modelItem => item.Product.UrunAdi)</td>
+            <td>@Html.DisplayFor(modelItem => item.Product.UrunFiyati) TL</td>
+        </tr>
+    }
+</table>

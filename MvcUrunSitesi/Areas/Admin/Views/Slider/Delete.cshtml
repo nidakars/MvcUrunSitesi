@@ -1,0 +1,48 @@
+﻿@model MvcUrunSitesi.Entities.Slider
+
+@{
+    ViewBag.Title = "Sil";
+}
+
+<h2>Sil</h2>
+
+<h3>Silmek istediğinze emin misiniz?</h3>
+<div>
+    <h4>Slide Sil</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Resim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Resim)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SliderAciklama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SliderAciklama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SliderLink)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SliderLink)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-default" /> |
+            @Html.ActionLink("Listeye Dön", "Index")
+        </div>
+    }
+</div>

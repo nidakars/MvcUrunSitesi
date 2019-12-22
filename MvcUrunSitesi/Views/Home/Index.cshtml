@@ -1,63 +1,43 @@
-﻿@{
+﻿@model IEnumerable<MvcUrunSitesi.Entities.Product>
+
+@{
     ViewBag.Title = "Home Page";
 }
 
 @Html.Partial("_Slider")
 <hr />
+
+<h1>Sizin İçin Seçtiklerimiz</h1>
+
 <div class="row">
-    <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-            <img src="~/Img/6-2-compressor.jpg" />
-            <div class="caption">
-                <h3>Ürün adı</h3>
-                <p>Açıklama</p>
-                <p><a href="#" class="btn btn-primary" role="button">İncele</a></p>
+    @foreach (var item in Model)
+    {
+        if (item.Anasayfa == true)
+        {
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <img src="~/Img/Product/@item.UrunResmi" />
+                    <div class="caption">
+                        <h3>@item.UrunAdi</h3>
+                        <p>@item.UrunFiyati TL</p>
+                        <p><a href="~/UrunDetay/@item.Id" class="btn btn-primary" role="button">İncele</a></p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-
-    <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-            <img src="~/Img/6-5-compressor.jpg" />
-            <div class="caption">
-                <h3>Ürün adı</h3>
-                <p>Açıklama</p>
-                <p><a href="#" class="btn btn-primary" role="button">İncele</a></p>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-            <img src="~/Img/penye-sal.jpg" />
-            <div class="caption">
-                <h3>Ürün adı</h3>
-                <p>Açıklama</p>
-                <p><a href="#" class="btn btn-primary" role="button">İncele</a></p>
-            </div>
-        </div>
-    </div>
+        }
+    }
 </div>
 
-<h1>Site sloganımız</h1>
+<h2>Son Eklenen Ürünler</h2>
 
 <div class="row">
-    <div class="col-xs-6 col-md-3">
-        <a href="#" class="thumbnail">
-            <img src="~/Img/6-2-compressor.jpg" />
-        </a>
-    </div>
-    <div class="col-xs-6 col-md-3">
-        <a href="#" class="thumbnail">
-            <img src="~/Img/6-2-compressor.jpg" />
-        </a>
-    </div><div class="col-xs-6 col-md-3">
-        <a href="#" class="thumbnail">
-            <img src="~/Img/6-2-compressor.jpg" />
-        </a>
-    </div><div class="col-xs-6 col-md-3">
-        <a href="#" class="thumbnail">
-            <img src="~/Img/6-2-compressor.jpg" />
-        </a>
-    </div>
+    @foreach (var item in Model)
+    {
+        <div class="col-xs-6 col-md-3">
+            <a href="~/UrunDetay/@item.Id" class="thumbnail">
+                <img src="~/Img/Product/@item.UrunResmi" />
+                <p>@item.UrunAdi</p>
+            </a>
+        </div>
+    }
 </div>

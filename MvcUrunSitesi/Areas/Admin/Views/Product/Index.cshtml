@@ -1,0 +1,75 @@
+﻿@model IEnumerable<MvcUrunSitesi.Entities.Product>
+
+@{
+    ViewBag.Title = "Ürün Listesi";
+}
+
+<h2>Ürün Listesi</h2>
+
+<p>
+    @Html.ActionLink("Yeni Ekle", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Categories.KategoriAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UrunAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UrunResmi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UrunFiyati)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UrunStok)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Iskonto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Anasayfa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EklenmeTarihi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Categories.KategoriAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UrunAdi)
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.UrunResmi)*@
+            <img src="~/Img/Product/@item.UrunResmi" height="30px"  />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UrunFiyati)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UrunStok)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Iskonto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Anasayfa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EklenmeTarihi)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

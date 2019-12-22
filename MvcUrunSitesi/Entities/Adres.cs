@@ -13,6 +13,6 @@ namespace MvcUrunSitesi.Entities
         public string AcikAdres { get; set; }
         public string Sehir { get; set; }
 
-        public User User { get; set; }
+        public virtual User Users { get; set; }
     }
 }

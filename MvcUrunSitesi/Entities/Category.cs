@@ -12,6 +12,6 @@ namespace MvcUrunSitesi.Entities
         public string KategoriAdi { get; set; }
         public string KategoriAciklamasi { get; set; }
 
-        public List<Product> Products { get; set; }
+        public virtual List<Product> Products { get; set; }
     }
 }

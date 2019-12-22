@@ -30,11 +30,23 @@
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dLabel">
-                            <li>@Html.ActionLink("Anasayfa", "Index", "Home")</li>
-                            <li>@Html.ActionLink("Hakkımızda", "About", "Home")</li>
-                            <li>@Html.ActionLink("İletişim", "Contact", "Home")</li>
+                            @Html.Action("UstKategoriler", "Home")
                         </ul>
                     </li>
+                    @{
+                        if (Session["kullanici"] == null)
+                        {
+                            <li><a href="/giris">Üye Girişi</a></li>
+                            <li><a href="/kayit">Üye Ol</a></li>
+                        }
+                        else
+                        {
+                            var usr = Session["kullanici"] as MvcUrunSitesi.Entities.User;
+                            <li><a href="/uyepaneli">Hoşgeldin @usr.Adi @usr.Soyadi | Üye Paneli</a></li>
+                            <li><a href="/cikis">Çıkış</a></li>
+                        }
+                    }
+                    <li>@Html.ActionLink("Sepet", "sepetgoster", "home")</li>
                 </ul>
             </div>
         </div>
@@ -68,7 +80,7 @@
                     <hr />
                     <ul>
                         <li><a href="/kayit">Yeni Üyelik</a></li>
-                        <li><a href="/iletisim">İletişim Formu</a></li>
+                        <li><a href="/giris">Üye Girişi</a></li>
                         <li><a href="/odemetalep">Havale Bildirim Formu</a></li>
                         <li><a href="/sikca-sorulan-sorular-s-s-s">Sıkça Sorulan Sorular (S.S.S)</a></li>
                     </ul>

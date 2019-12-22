@@ -1,4 +1,5 @@
-﻿
+﻿@model MvcUrunSitesi.Entities.Product
+
 @{
     ViewBag.Title = "Urun Detay";
 }
@@ -6,19 +7,27 @@
     <div class="row">
 
         <div class="col-xs-12 col-sm-6">
-            <img src="~/Img/urun-detay-resmi.jpg" class="img-responsive" />
+            <img src="~/Img/Product/@Model.UrunResmi" class="img-responsive" />
         </div>
 
         <div class="col-xs-12 col-sm-6">
-            <h1>@ViewBag.Message Urun Detay Sayfası</h1>
+            <h1>@Model.UrunAdi</h1>
             <p>
-                Ürün Fiyatı
+                @Model.UrunFiyati TL
             </p>
             <p>
-                Ürün açıklamsı
+                @Model.UrunAciklamasi
             </p>
-            <p><a href="#" class="btn btn-primary" role="button">Sepete Ekle</a></p>
-        </div>
+            @using (Html.BeginForm("SepeteEkle","Home"))
+            {
+                @Html.HiddenFor(i => i.Id)
+                @Html.AntiForgeryToken()
+                <button type="submit" class="btn btn-primary">
+                    Sepete Ekle
+                </button>
+            }
 
+        </div>
+        @*@ViewBag.Message Urun Detay Sayfası*@
     </div>
 </div>

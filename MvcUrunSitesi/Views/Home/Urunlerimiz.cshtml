@@ -1,0 +1,18 @@
+﻿@model IEnumerable<MvcUrunSitesi.Entities.Product>
+
+@{
+    ViewBag.Title = "Kategoriler";
+}
+
+<h1>@ViewBag.Kategori</h1>
+<p>@ViewBag.KategoriAciklama</p>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-xs-6 col-md-3">
+            <a href="/urundetay/@item.Id" class="thumbnail">
+                <img src="~/Img/Product/@item.UrunResmi" />
+            </a>
+        </div>
+    }
+</div>

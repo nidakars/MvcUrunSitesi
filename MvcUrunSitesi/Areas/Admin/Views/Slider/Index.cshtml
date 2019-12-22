@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MvcUrunSitesi.Entities.Slider>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Slide Listesi</h2>
+
+<p>
+    @Html.ActionLink("Yeni Ekle", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Resim)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SliderAciklama)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SliderLink)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <a href="~/Img/Slider/@item.Resim" target="_blank">
+                    <img src="~/Img/Slider/@item.Resim" height="40px" />
+                </a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SliderAciklama)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SliderLink)
+            </td>
+            <td>
+                @Html.ActionLink("Düzenle", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Sil", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
